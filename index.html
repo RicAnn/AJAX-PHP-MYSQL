@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax DB</title>
+        <style>
+            div { margin:15px; 
+                  padding:10px; 
+                  background-color: #eeeee4; 
+                  border:2px solid #ff0000; 
+            }
+            #main { margin:15px; 
+                  padding:10px; 
+                  background-color: #DEF0F6; 
+                  border:3px solid #004400; 
+            } 
+            
+            tr:nth-child(even) { background: #CCCCCC; }
+
+        </style>
+        <script>
+            
+            function connettiMysql() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "connettiMysql.php", true);
+              xhttp.send();
+            }
+            
+            function creaDB() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "crea_db.php", true);
+              xhttp.send();
+            }
+            
+           function creaDB_IFNX() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "crea_dbifnx.php", true);
+              xhttp.send();
+            }
+            
+           function connettiDB() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("secondoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "connettiDB.php", true);
+              xhttp.send();
+            }
+                        
+           function creaTable() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("terzoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "create_table.php", true);
+              xhttp.send();
+            }
+            
+           function insertData() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("quartoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "insertData.php", true);
+              xhttp.send();
+            }
+            
+            function lastID() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("quintoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "lastID.php", true);
+              xhttp.send();
+            }
+            
+            function insertMultiData() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("sestoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "insertData.php", true);
+              xhttp.send();
+            }
+            
+            function insertPrepareStatement() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("settimoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "insertMultiData.php", true);
+              xhttp.send();
+            }
+            
+            function select1() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("ottavoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "select1.php", true);
+              xhttp.send();
+            }
+              
+            
+            function selectWithTable() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("ottavoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "select1WithTable.php", true);
+              xhttp.send();
+            }            
+   
+            function delete1(ID) {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "delete1.php?id=" + ID, true);
+              xhttp.send();
+            }           
+
+            function deleteAndSelectWithTable(ID) {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "deleteAndSelectWithTable.php?id=" + ID, true);
+              xhttp.send();
+            }   
+   
+            function deleteAllData() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "deleteAllData.php", true);
+              xhttp.send();
+            } 
+                        
+            function deleteDB() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("decimoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "deleteDB.php", true);
+              xhttp.send();
+            }
+                   
+            function deleteTable() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("decimoDiv").innerHTML = this.responseText;                 
+                }
+              };
+              xhttp.open("GET", "deleteTable.php", true);
+              xhttp.send();
+            }
+            
+            function loadDoc2() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txt_1").value = this.responseText;
+                }
+              };
+              xhttp.open("GET", "create_table.php", true);
+              xhttp.send();
+            } 
+            
+            function reset(divID){
+                document.getElementById(divID).innerHTML = "";
+            }
+            function resetAll(){
+                document.getElementById("primoDiv").innerHTML = "";
+                document.getElementById("secondoDiv").innerHTML = "";
+                document.getElementById("terzoDiv").innerHTML = "";
+                document.getElementById("quartoDiv").innerHTML = "";
+                document.getElementById("quintoDiv").innerHTML = "";
+                document.getElementById("sestoDiv").innerHTML = "";
+                document.getElementById("settimoDiv").innerHTML = "";
+                document.getElementById("ottavoDiv").innerHTML = "";
+                document.getElementById("nonoDiv").innerHTML = "";
+                document.getElementById("decimoDiv").innerHTML = "";
+                document.getElementById("undicesimoDiv").innerHTML = "";
+            }
+            </script>
+    </head>
+<body>
+
+<div id="main" >
+    <h1>Ajax -> PHP/MYSQL ad Oggetti</h1> 
+    <button type="button" onclick="resetAll()">Reset All</button>
+</div>
+    
+    DB: 
+    <button type="button" onclick="connettiMysql()">Connetti Mysql</button>
+    <button type="button" onclick="creaDB()">Crea DB</button>
+    <button type="button" onclick="creaDB_IFNX()">Crea DB IF NOT EXISTS</button>  
+    <button type="button" onclick="reset('primoDiv')">Reset</button>
+    <div id="primoDiv" ></div>
+    
+    CONNETTI DB: 
+    <button type="button" onclick="connettiDB()">Connetti DB</button>
+    <button type="button" onclick="reset('secondoDiv')">Reset</button>
+    <div id="secondoDiv" ></div>
+    
+    CREA TABELLA: 
+    <button type="button" onclick="creaTable()">Crea Tabella</button>
+    <button type="button" onclick="reset('terzoDiv')">Reset</button>
+    <div id="terzoDiv" ></div>
+    
+    INSERISCI DATI: 
+    <button type="button" onclick="insertData()">Inserisci Dati</button>
+    <button type="button" onclick="reset('quartoDiv')">Reset</button>
+    <div id="quartoDiv" ></div>
+
+    ULTIMO ID INSERITO: 
+    <button type="button" onclick="lastID()">Ultimo ID</button>
+    <button type="button" onclick="reset('quintoDiv')">Reset</button>
+    <div id="quintoDiv" ></div> 
+
+    INSERIMENTO MULTIPLO: 
+    <button type="button" onclick="insertMultiData()">Inserimento Multiplo</button>
+    <button type="button" onclick="reset('sestoDiv')">Reset</button>
+    <div id="sestoDiv" ></div>   
+    
+    INSERIMENTO PREPARATO 
+    <button type="button" onclick="insertPrepareStatement()">Inserimento Preparato</button>
+    <button type="button" onclick="reset('settimoDiv')">Reset</button>
+    <div id="settimoDiv" ></div>       
+    
+    SELEZIONE 
+    <button type="button" onclick="select1()">Select</button>
+    <button type="button" onclick="selectWithTable()">Select With Table</button>
+    <button type="button" onclick="reset('ottavoDiv')">Reset</button>
+    <div id="ottavoDiv" ></div>    
+    
+    CANCELLAZIONE DATI  --- 
+    Inserisci ID: <input type="number" id="dataID" size="4"  min="0" >
+    <button type="button" onclick="delete1(document.getElementById('dataID').value)">Delete</button>
+    <button type="button" onclick="deleteAndSelectWithTable(document.getElementById('dataID').value)">Delete & Select With Table</button>
+    <button type="button" onclick="deleteAllData()">Delete All Data</button>
+    <button type="button" onclick="reset('nonoDiv')">Reset</button>
+    <div id="nonoDiv" ></div>    
+    
+    CANCELLAZIONE TABELLA
+    <button type="button" onclick="deleteTable()">Delete</button>
+    <button type="button" onclick="reset('decimoDiv')">Reset</button>
+    <div id="decimoDiv" ></div>
+    
+    CANCELLAZIONE DB
+    <button type="button" onclick="deleteDB()">Delete</button>
+    <button type="button" onclick="reset('undicesimoDiv')">Reset</button>
+    <div id="undicesimoDiv" ></div>    
+    
+
+</body>
+</html>
