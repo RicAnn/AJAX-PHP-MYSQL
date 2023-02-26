@@ -16,6 +16,7 @@
             
             tr:nth-child(even) { background: #CCCCCC; }
 
+            #connStatus { color:#155415  }
         </style>
         <script>
           
@@ -125,7 +126,29 @@
             xhttp.open(d.mtd, d.qstr, true);
             xhttp.send();
           }
-            
+          
+          function connection(){
+
+            let cnt = new Object();  
+
+            cnt.host = document.getElementById('mysqlHost').value; 
+            cnt.user = document.getElementById('mysqlUser').value;
+            cnt.psw = document.getElementById('mysqlPass').value; 
+            qs = "connection.php"
+            param = "H=" + cnt.host + "&U=" + cnt.user + "&P=" + cnt.psw;
+            console.log(qs);
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("connStatus").innerHTML = this.responseText;                 
+              }
+            };
+            xhttp.open("POST", qs, true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(param);
+          }
+
           function reset(divID){
               document.getElementById(divID).innerHTML = "";
           }
@@ -142,16 +165,29 @@
               document.getElementById("nonoDiv").innerHTML = "";
               document.getElementById("decimoDiv").innerHTML = "";
               document.getElementById("undicesimoDiv").innerHTML = "";
+
+              document.getElementById("connStatus").innerHTML = "";
+              document.getElementById("mysqlHost").value = "";
+              document.getElementById("mysqlUser").value = "";
+              document.getElementById("mysqlPass").value = "";
           }
         </script>
     </head>
 <body>
 
 <div id="main" >
-    <h1>Ajax -> PHP/MYSQL ad Oggetti</h1> 
+    <h1>AjaxAMP </h1> 
     <button type="button" onclick="resetAll()">Reset All</button>
 </div>
-    
+
+<div id="connection" >
+  Host: <input type="text" id="mysqlHost" value=""/> 
+  User: <input type="text" id="mysqlUser" value=""/> 
+  Password: <input type="password" id="mysqlPass" value=""/> 
+  <button type="button" onclick="connection()">Connect to MySQL</button>
+  Status: <span id="connStatus"></span>
+</div>
+
     DB: 
     <button type="button" onclick="callAjx(1)">Connetti Mysql</button>
     <button type="button" onclick="callAjx(2)">Crea DB</button>
