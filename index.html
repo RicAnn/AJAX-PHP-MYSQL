@@ -131,19 +131,23 @@
             cnt.host = document.getElementById('mysqlHost').value; 
             cnt.user = document.getElementById('mysqlUser').value;
             cnt.psw = document.getElementById('mysqlPass').value; 
-            qs = "connection.php"
-            param = "H=" + cnt.host + "&U=" + cnt.user + "&P=" + cnt.psw;
-            console.log(qs);
+            
+            d.myDiv = "connStatus";
+            d.mtd   = "POST";
+            d.qstr  = "connection.php";            
+            
+            d.param = "H=" + cnt.host + "&U=" + cnt.user + "&P=" + cnt.psw;
+            
             let xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("connStatus").innerHTML = this.responseText;                 
+                document.getElementById(d.myDiv).innerHTML = this.responseText;                 
               }
             };
-            xhttp.open("POST", qs, true);
+            xhttp.open(d.mtd, qs, true);
             xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhttp.send(param);
+            xhttp.send(d.param);
           }
 
           function reset(divID){
