@@ -125,212 +125,25 @@
             xhttp.open(d.mtd, d.qstr, true);
             xhttp.send();
           }
+            
+          function reset(divID){
+              document.getElementById(divID).innerHTML = "";
+          }
 
-            function connettiMysql() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "connettiMysql.php", true);
-              xhttp.send();
-            }
-            
-            function creaDB() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "crea_db.php", true);
-              xhttp.send();
-            }
-            
-           function creaDB_IFNX() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("primoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "crea_dbifnx.php", true);
-              xhttp.send();
-            }
-            
-           function connettiDB() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("secondoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "connettiDB.php", true);
-              xhttp.send();
-            }
-                        
-           function creaTable() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("terzoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "create_table.php", true);
-              xhttp.send();
-            }
-            
-           function insertData() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("quartoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "insertData.php", true);
-              xhttp.send();
-            }
-            
-            function lastID() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("quintoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "lastID.php", true);
-              xhttp.send();
-            }
-            
-            function insertMultiData() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("sestoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "insertMultiData.php", true);
-              xhttp.send();
-            }
-            
-            function insertPrepareStatement() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("settimoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "insertPrepare.php", true);
-              xhttp.send();
-            }
-            
-            function select1() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("ottavoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "select1.php", true);
-              xhttp.send();
-            }
-              
-            
-            function selectWithTable() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("ottavoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "select1WithTable.php", true);
-              xhttp.send();
-            }            
-   
-            function delete1(ID) {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "delete1.php?id=" + ID, true);
-              xhttp.send();
-            }           
-
-            function deleteAndSelectWithTable(ID) {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "deleteAndSelectWithTable.php?id=" + ID, true);
-              xhttp.send();
-            }   
-   
-            function deleteAllData() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("nonoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "deleteAllData.php", true);
-              xhttp.send();
-            } 
-                        
-            function deleteDB() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("decimoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "deleteDB.php", true);
-              xhttp.send();
-            }
-                   
-            function deleteTable() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("decimoDiv").innerHTML = this.responseText;                 
-                }
-              };
-              xhttp.open("GET", "deleteTable.php", true);
-              xhttp.send();
-            }
-            
-            function loadDoc2() {
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                  document.getElementById("txt_1").value = this.responseText;
-                }
-              };
-              xhttp.open("GET", "create_table.php", true);
-              xhttp.send();
-            } 
-            
-            function reset(divID){
-                document.getElementById(divID).innerHTML = "";
-            }
-            function resetAll(){
-                document.getElementById("primoDiv").innerHTML = "";
-                document.getElementById("secondoDiv").innerHTML = "";
-                document.getElementById("terzoDiv").innerHTML = "";
-                document.getElementById("quartoDiv").innerHTML = "";
-                document.getElementById("quintoDiv").innerHTML = "";
-                document.getElementById("sestoDiv").innerHTML = "";
-                document.getElementById("settimoDiv").innerHTML = "";
-                document.getElementById("ottavoDiv").innerHTML = "";
-                document.getElementById("nonoDiv").innerHTML = "";
-                document.getElementById("decimoDiv").innerHTML = "";
-                document.getElementById("undicesimoDiv").innerHTML = "";
-            }
-            </script>
+          function resetAll(){
+              document.getElementById("primoDiv").innerHTML = "";
+              document.getElementById("secondoDiv").innerHTML = "";
+              document.getElementById("terzoDiv").innerHTML = "";
+              document.getElementById("quartoDiv").innerHTML = "";
+              document.getElementById("quintoDiv").innerHTML = "";
+              document.getElementById("sestoDiv").innerHTML = "";
+              document.getElementById("settimoDiv").innerHTML = "";
+              document.getElementById("ottavoDiv").innerHTML = "";
+              document.getElementById("nonoDiv").innerHTML = "";
+              document.getElementById("decimoDiv").innerHTML = "";
+              document.getElementById("undicesimoDiv").innerHTML = "";
+          }
+        </script>
     </head>
 <body>
 
