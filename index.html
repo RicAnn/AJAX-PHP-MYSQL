@@ -18,7 +18,114 @@
 
         </style>
         <script>
-            
+          
+          let d = { "myDiv" : "",
+                    "mtd"   : "GET",
+                    "qstr"  : ""
+                  };
+
+          function callAjx(c) {
+
+            switch(c) {
+              case 1:
+                d.myDiv = "primoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "connettiMysql.php";
+                break;
+              case 2:
+                d.myDiv = "primoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "crea_db.php";
+                break;
+              case 3:
+                d.myDiv = "primoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "crea_dbifnx.php";
+                break;  
+              case 4:
+                d.myDiv = "secondoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "connettiDB.php";
+                break;                  
+              case 5:
+                d.myDiv = "terzoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "create_table.php";
+                break; 
+              case 6:
+                d.myDiv = "quartoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "insertData.php";
+                break;   
+              case 7:
+                d.myDiv = "quintoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "lastID.php";
+                break;
+              case 8:
+                d.myDiv = "sestoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "insertMultiData.php";
+                break;
+              case 9:
+                d.myDiv = "settimoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "insertPrepare.php";
+                break;
+              case 10:
+                d.myDiv = "ottavoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "select1.php";
+                break;                                                 
+              case 11:
+                d.myDiv = "ottavoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "select1WithTable.php";
+                break;    
+              case 12:
+                d.myDiv = "nonoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "delete1.php?id=" + document.getElementById('dataID').value;
+                break;  
+              case 13:
+                d.myDiv = "nonoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "deleteAndSelectWithTable.php?id=" + document.getElementById('dataID').value;
+                break;   
+              case 14:
+                d.myDiv = "nonoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "deleteAllData.php";
+                break;   
+              case 15:
+                d.myDiv = "decimoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "deleteTable.php";
+                break;   
+              case 16:
+                d.myDiv = "undicesimoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "deleteDB.php";
+                break;   
+              case 11:
+                d.myDiv = "ottavoDiv";
+                d.mtd   = "GET";
+                d.qstr  = "select1WithTable.php";
+                break;                                                                                                                                                                                                              
+              default:
+                
+            } 
+
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById(d.myDiv).innerHTML = this.responseText;                 
+              }
+            };
+            xhttp.open(d.mtd, d.qstr, true);
+            xhttp.send();
+          }
+
             function connettiMysql() {
               var xhttp = new XMLHttpRequest();
               xhttp.onreadystatechange = function() {
@@ -103,7 +210,7 @@
                   document.getElementById("sestoDiv").innerHTML = this.responseText;                 
                 }
               };
-              xhttp.open("GET", "insertData.php", true);
+              xhttp.open("GET", "insertMultiData.php", true);
               xhttp.send();
             }
             
@@ -114,7 +221,7 @@
                   document.getElementById("settimoDiv").innerHTML = this.responseText;                 
                 }
               };
-              xhttp.open("GET", "insertMultiData.php", true);
+              xhttp.open("GET", "insertPrepare.php", true);
               xhttp.send();
             }
             
@@ -233,63 +340,63 @@
 </div>
     
     DB: 
-    <button type="button" onclick="connettiMysql()">Connetti Mysql</button>
-    <button type="button" onclick="creaDB()">Crea DB</button>
-    <button type="button" onclick="creaDB_IFNX()">Crea DB IF NOT EXISTS</button>  
+    <button type="button" onclick="callAjx(1)">Connetti Mysql</button>
+    <button type="button" onclick="callAjx(2)">Crea DB</button>
+    <button type="button" onclick="callAjx(3)">Crea DB IF NOT EXISTS</button>  
     <button type="button" onclick="reset('primoDiv')">Reset</button>
     <div id="primoDiv" ></div>
     
     CONNETTI DB: 
-    <button type="button" onclick="connettiDB()">Connetti DB</button>
+    <button type="button" onclick="callAjx(4)">Connetti DB</button>
     <button type="button" onclick="reset('secondoDiv')">Reset</button>
     <div id="secondoDiv" ></div>
     
     CREA TABELLA: 
-    <button type="button" onclick="creaTable()">Crea Tabella</button>
+    <button type="button" onclick="callAjx(5)">Crea Tabella</button>
     <button type="button" onclick="reset('terzoDiv')">Reset</button>
     <div id="terzoDiv" ></div>
     
     INSERISCI DATI: 
-    <button type="button" onclick="insertData()">Inserisci Dati</button>
+    <button type="button" onclick="callAjx(6)">Inserisci Dati</button>
     <button type="button" onclick="reset('quartoDiv')">Reset</button>
     <div id="quartoDiv" ></div>
 
     ULTIMO ID INSERITO: 
-    <button type="button" onclick="lastID()">Ultimo ID</button>
+    <button type="button" onclick="callAjx(7)">Ultimo ID</button>
     <button type="button" onclick="reset('quintoDiv')">Reset</button>
     <div id="quintoDiv" ></div> 
 
     INSERIMENTO MULTIPLO: 
-    <button type="button" onclick="insertMultiData()">Inserimento Multiplo</button>
+    <button type="button" onclick="callAjx(8)">Inserimento Multiplo</button>
     <button type="button" onclick="reset('sestoDiv')">Reset</button>
     <div id="sestoDiv" ></div>   
     
     INSERIMENTO PREPARATO 
-    <button type="button" onclick="insertPrepareStatement()">Inserimento Preparato</button>
+    <button type="button" onclick="callAjx(9)">Inserimento Preparato</button>
     <button type="button" onclick="reset('settimoDiv')">Reset</button>
     <div id="settimoDiv" ></div>       
     
     SELEZIONE 
-    <button type="button" onclick="select1()">Select</button>
-    <button type="button" onclick="selectWithTable()">Select With Table</button>
+    <button type="button" onclick="callAjx(10)">Select</button>
+    <button type="button" onclick="callAjx(11)">Select With Table</button>
     <button type="button" onclick="reset('ottavoDiv')">Reset</button>
     <div id="ottavoDiv" ></div>    
     
     CANCELLAZIONE DATI  --- 
     Inserisci ID: <input type="number" id="dataID" size="4"  min="0" >
-    <button type="button" onclick="delete1(document.getElementById('dataID').value)">Delete</button>
-    <button type="button" onclick="deleteAndSelectWithTable(document.getElementById('dataID').value)">Delete & Select With Table</button>
-    <button type="button" onclick="deleteAllData()">Delete All Data</button>
+    <button type="button" onclick="callAjx(12)">Delete</button>
+    <button type="button" onclick="callAjx(13)">Delete & Select With Table</button>
+    <button type="button" onclick="callAjx(14)">Delete All Data</button>
     <button type="button" onclick="reset('nonoDiv')">Reset</button>
     <div id="nonoDiv" ></div>    
     
     CANCELLAZIONE TABELLA
-    <button type="button" onclick="deleteTable()">Delete</button>
+    <button type="button" onclick="callAjx(15)">Delete</button>
     <button type="button" onclick="reset('decimoDiv')">Reset</button>
     <div id="decimoDiv" ></div>
     
     CANCELLAZIONE DB
-    <button type="button" onclick="deleteDB()">Delete</button>
+    <button type="button" onclick="callAjx(16)">Delete</button>
     <button type="button" onclick="reset('undicesimoDiv')">Reset</button>
     <div id="undicesimoDiv" ></div>    
     
