@@ -11,6 +11,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-echo 'Connected to MYSQL ';
+echo 'Connected to MYSQL ' . $mysqli->server_version;;
 $conn->close();
 ?> 
